@@ -1,6 +1,7 @@
 import os, pygame, time
 
 from states.TitleState import Title
+from states.PlayState import Play
 
 # main class
 class Game():
@@ -45,6 +46,7 @@ class Game():
     # loads game states
     def load_states(self):
         self.title_screen = Title(self)
+        self.play_screen = Play(self)
         self.state_stack.append(self.title_screen)
 
     # game loop (function that runs each frame)
@@ -57,8 +59,20 @@ class Game():
     # get inputs
     def get_events(self):
         for event in pygame.event.get():
+            # if I quit the game (like pressing X or clicking quit or smthn)
             if event.type == pygame.QUIT:
                 self.running = False
+            
+            # if i press a key down
+            if event.type == pygame.KEYDOWN:
+                # if the key is ESCAPE
+                if event.key == pygame.K_ESCAPE:
+                    self.reset_values()
+                    self.load_states()
+
+                # if the key is ENTER
+                if event.key == pygame.K_RETURN:
+                    self.actions['enter'] = True
 
     
     # get deltatime (for framerate independence)
@@ -92,6 +106,10 @@ class Game():
         text_rect = (text_surface.get_rect())
         text_rect.center = (x, y)
         surface.blit(text_surface, text_rect)
+
+    # function to reset all relevant variables
+    def reset_values(self):
+        self.state_stack = []
 
 # make sure this is the main file being run and then repeat the game_loop function
 if __name__ == "__main__":
