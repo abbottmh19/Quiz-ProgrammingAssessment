@@ -1,7 +1,7 @@
 import os, pygame, time
 
 from states.TitleState import Title
-from states.PlayState import Play
+from states.TeamState import Team
 
 # main class
 class Game():
@@ -34,6 +34,9 @@ class Game():
         # state machine runs functions from object at top of this stack
         self.state_stack = []
 
+        # team name (gets inputted later)
+        self.team = "unamed"
+
         # load componants
         self.load_assets()
         self.load_states()
@@ -46,7 +49,7 @@ class Game():
     # loads game states
     def load_states(self):
         self.title_screen = Title(self)
-        self.play_screen = Play(self)
+        self.team_screen = Team(self)
         self.state_stack.append(self.title_screen)
 
     # game loop (function that runs each frame)
@@ -55,6 +58,7 @@ class Game():
         self.get_events()
         self.update()
         self.render()
+        self.reset_keys()
 
     # get inputs
     def get_events(self):
@@ -73,6 +77,13 @@ class Game():
                 # if the key is ENTER
                 if event.key == pygame.K_RETURN:
                     self.actions['enter'] = True
+                # if the key is an up or down arrow
+                elif event.key == pygame.K_UP:
+                    self.actions['up'] = True
+                elif event.key == pygame.K_DOWN:
+                    self.actions['down'] = True
+                else:
+                    self.actions['other'] = event.unicode
 
     
     # get deltatime (for framerate independence)
@@ -110,6 +121,11 @@ class Game():
     # function to reset all relevant variables
     def reset_values(self):
         self.state_stack = []
+    
+    # function to set all actions to false
+    def reset_keys(self):
+        for action in self.actions:
+            self.actions[action] = False
 
 # make sure this is the main file being run and then repeat the game_loop function
 if __name__ == "__main__":
