@@ -6,8 +6,10 @@ class Team(BaseState):
         # run init function in base state
         BaseState.__init__(self, game)
 
-        self.input = "" # where we store user input
+        # where we store user input
+        self.input = ""
 
+        # load fonts
         self.questionfont = pygame.font.Font(os.path.join(self.game.font_dir, "Penguin-Regular.ttf"), 50)
         self.font = pygame.font.Font(os.path.join(self.game.font_dir, "STIXTwoText-Italic.ttf"), 40)
 
@@ -24,7 +26,11 @@ class Team(BaseState):
 
         # if we press enter
         if (self.game.actions['enter']):
-            self.game.team = self.input
+
+            # input validation
+            if (len(self.input) >= 4):
+                self.game.team = self.input
+                self.game.state_stack.append(self.game.play_screen)
 
     # what we render to the screen
     def render(self, display):

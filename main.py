@@ -2,6 +2,7 @@ import os, pygame, time
 
 from states.TitleState import Title
 from states.TeamState import Team
+from states.PlayState import Play
 
 # main class
 class Game():
@@ -37,6 +38,9 @@ class Game():
         # team name (gets inputted later)
         self.team = "unamed"
 
+        # how i store the questions
+        self.questions = [["1 + 1 = ?", ["2", "4", "6", "1"], 0], ["2 + 2 = ?", ["4", "2", "9", "burger"], 0]]
+
         # load componants
         self.load_assets()
         self.load_states()
@@ -50,6 +54,7 @@ class Game():
     def load_states(self):
         self.title_screen = Title(self)
         self.team_screen = Team(self)
+        self.play_screen = Play(self)
         self.state_stack.append(self.title_screen)
 
     # game loop (function that runs each frame)
