@@ -12,7 +12,10 @@ class Team(BaseState):
         # load fonts
         self.questionfont = pygame.font.Font(os.path.join(self.game.font_dir, "Penguin-Regular.ttf"), 50)
         self.font = pygame.font.Font(os.path.join(self.game.font_dir, "STIXTwoText-Italic.ttf"), 40)
-
+        
+        # swear to god this is just for input validation (i got other people to write these)
+        self.no = ["faggot", "sped","disabled","lincuck","slant","linux user","nigger","niglet","retard","fuckface", "gamer", "trap", "tranny", "transtrender"]
+        self.clean = True
 
     # what do run each frame
     def update(self, dt, actions):
@@ -26,11 +29,15 @@ class Team(BaseState):
 
         # if we press enter
         if (self.game.actions['enter']):
-
             # input validation
-            if (len(self.input) >= 4):
+            for slur in self.no:
+                if slur in self.input:
+                    self.clean = False
+
+            if (self.clean):
                 self.game.team = self.input
                 self.game.state_stack.append(self.game.play_screen)
+            self.clean = True
 
     # what we render to the screen
     def render(self, display):

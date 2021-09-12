@@ -30,7 +30,7 @@ class Game():
         self.dt, self.prev_time = 0, 0
 
         # for inputs
-        self.actions = {"up" : False, "down" : False, "enter" : False, "other" : False}
+        self.actions = {"up" : False, "down" : False, "enter" : False, "other" : False, "click" : (0, 0)}
 
         # state machine runs functions from object at top of this stack
         self.state_stack = []
@@ -89,6 +89,9 @@ class Game():
                     self.actions['down'] = True
                 else:
                     self.actions['other'] = event.unicode
+
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                self.actions['click'] = event.pos
 
     
     # get deltatime (for framerate independence)
