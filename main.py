@@ -3,6 +3,7 @@ import os, pygame, time
 from states.TitleState import Title
 from states.TeamState import Team
 from states.PlayState import Play
+from states.EndState import End
 
 # main class
 class Game():
@@ -55,6 +56,7 @@ class Game():
         self.title_screen = Title(self)
         self.team_screen = Team(self)
         self.play_screen = Play(self)
+        self.end_screen = End(self)
         self.state_stack.append(self.title_screen)
 
     # game loop (function that runs each frame)

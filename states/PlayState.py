@@ -26,7 +26,6 @@ class Play(BaseState):
         self.pink = pygame.Rect(self.game.GAME_WIDTH-300, self.game.GAME_HEIGHT/2+100, 200, 50)
 
     def update(self, dt, actions):
-        print(self.game.total)
         # check inputs
         if (self.game.actions["click"]):
             # answers
@@ -45,6 +44,8 @@ class Play(BaseState):
 
             if (self.question+1 != self.amount):
                 self.question += 1
+            else:
+                self.game.state_stack.append(self.game.end_screen)
             self.pressed = -1
 
 
