@@ -17,13 +17,13 @@ class Play(BaseState):
         self.game.total = 0
 
         # font
-        self.font = pygame.font.Font(os.path.join(self.game.font_dir, "STIXTwoText-Italic.ttf"), 40)
+        self.font = pygame.font.Font(os.path.join(self.game.font_dir, "STIXTwoText-Italic.ttf"), 28)
 
         # box things
-        self.red = pygame.Rect(100, self.game.GAME_HEIGHT/2, 200, 50)
-        self.blue = pygame.Rect(self.game.GAME_WIDTH-300, self.game.GAME_HEIGHT/2, 200, 50)
-        self.green = pygame.Rect(100, self.game.GAME_HEIGHT/2+100, 200, 50)
-        self.pink = pygame.Rect(self.game.GAME_WIDTH-300, self.game.GAME_HEIGHT/2+100, 200, 50)
+        self.red = pygame.Rect(10, self.game.GAME_HEIGHT/2, 350, 50)
+        self.blue = pygame.Rect(self.game.GAME_WIDTH-360, self.game.GAME_HEIGHT/2, 350, 50)
+        self.green = pygame.Rect(10, self.game.GAME_HEIGHT/2+100, 350, 50)
+        self.pink = pygame.Rect(self.game.GAME_WIDTH-360, self.game.GAME_HEIGHT/2+100, 350, 50)
 
     def update(self, dt, actions):
         # check inputs
@@ -59,14 +59,14 @@ class Play(BaseState):
 
         # draw possible answers
         pygame.draw.rect(display, (255, 0, 0), self.red);
-        self.game.draw_text(display, self.game.questions[self.question][1][0], (255,255,255), 200, self.game.GAME_HEIGHT/2+25, self.font)
+        self.game.draw_text(display, self.game.questions[self.question][1][0], (255,255,255), 185, self.game.GAME_HEIGHT/2+25, self.font)
 
         pygame.draw.rect(display, (0, 0, 255), self.blue);
-        self.game.draw_text(display, self.game.questions[self.question][1][1], (255,255,255), self.game.GAME_WIDTH-200, self.game.GAME_HEIGHT/2+25, self.font)
+        self.game.draw_text(display, self.game.questions[self.question][1][1], (255,255,255), self.game.GAME_WIDTH-185, self.game.GAME_HEIGHT/2+25, self.font)
 
         pygame.draw.rect(display, (0, 255, 0), self.green);
-        self.game.draw_text(display, self.game.questions[self.question][1][2], (255,255,255), 200, self.game.GAME_HEIGHT/2+125, self.font)
+        self.game.draw_text(display, self.game.questions[self.question][1][2], (255,255,255), 185, self.game.GAME_HEIGHT/2+125, self.font)
 
         pygame.draw.rect(display, (255, 0, 255), self.pink);
-        self.game.draw_text(display, self.game.questions[self.question][1][3], (255,255,255), self.game.GAME_WIDTH-200, self.game.GAME_HEIGHT/2+125, self.font)
+        self.game.draw_text(display, self.game.questions[self.question][1][3], (255,255,255), self.game.GAME_WIDTH-185, self.game.GAME_HEIGHT/2+125, self.font)
 
