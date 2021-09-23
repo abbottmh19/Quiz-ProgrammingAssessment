@@ -14,7 +14,7 @@ class Team(BaseState):
         self.font = pygame.font.Font(os.path.join(self.game.font_dir, "STIXTwoText-Italic.ttf"), 40)
         
         # swear to god this is just for input validation (i got other people to write these)
-        self.no = ["faggot", "sped","disabled","lincuck","slant","linux user","nigger","niglet","retard","fuckface", "gamer", "trap", "tranny", "transtrender", "fuck", "cunt"]
+        self.no = ["faggot", "sped","disabled","lincuck","slant","linux user","nigger","niglet","retard","fuckface", "gamer", "trap", "tranny", "transtrender", "fuck", "cunt", "pussy"]
         self.clean = True
 
     # what do run each frame
@@ -36,8 +36,9 @@ class Team(BaseState):
                     self.clean = False
 
             if (self.clean):
-                self.game.team = self.input
-                self.game.state_stack.append(self.game.play_screen)
+                if (self.input != ""):
+                    self.game.team = self.input
+                    self.game.state_stack.append(self.game.play_screen)
             self.clean = True
 
     # what we render to the screen

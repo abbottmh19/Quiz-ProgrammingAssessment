@@ -14,6 +14,8 @@ class Game():
         # two seperate GAME and SCREEN resolutions
         # this is done because the user may need to resize their window
         # and have a GAME resolution seperate allows everything to resize properly
+        # im not making the window resizable in this program because im lazy but it wouldnt be that hard
+        # to do.
         self.GAME_WIDTH,self.GAME_HEIGHT = 800,600
         self.SCREEN_WIDTH,self.SCREEN_HEIGHT = 800,600
 
