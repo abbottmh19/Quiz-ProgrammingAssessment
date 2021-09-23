@@ -14,7 +14,7 @@ class Team(BaseState):
         self.font = pygame.font.Font(os.path.join(self.game.font_dir, "STIXTwoText-Italic.ttf"), 40)
         
         # swear to god this is just for input validation (i got other people to write these)
-        self.no = ["faggot", "sped","disabled","lincuck","slant","linux user","nigger","niglet","retard","fuckface", "gamer", "trap", "tranny", "transtrender"]
+        self.no = ["faggot", "sped","disabled","lincuck","slant","linux user","nigger","niglet","retard","fuckface", "gamer", "trap", "tranny", "transtrender", "fuck", "cunt"]
         self.clean = True
 
     # what do run each frame
@@ -25,7 +25,8 @@ class Team(BaseState):
             if (self.game.actions['other'] == "\b"):
                 self.input = self.input[:-1]
             else:
-                self.input += self.game.actions["other"]
+                if (len(self.input) < 40):
+                    self.input += self.game.actions["other"]
 
         # if we press enter
         if (self.game.actions['enter']):

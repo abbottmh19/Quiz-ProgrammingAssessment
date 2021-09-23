@@ -40,7 +40,7 @@ class Game():
         self.team = "unamed"
 
         # how i store the questions
-        self.questions = [["What kind of transportation do you think Jesus would use?", ["Donkey", "Teleportation", "He Walks", "13-passenger minivan"], 2], ["What is the best video game?", ["Fortnite", "Super Metroid", "Dark Souls III", "Stardew Valley"], 3], ["What colour am I thinking of right now?", ["Red", "The entire rainbow", "Turquoise", "Periwinkle"], 3], ["Which of these artists are best?", ["girl in red", "Vacations", "$WERVE!", "Jimi Hendrix"], 0], [">:(", ["( ‾ʖ̫‾)", "<3", "( ͡o ͜ʖ ͡o)", "»-(¯`·.·´¯)->firby<-(¯`·.·´¯)-«"], 1]]
+        self.questions = [["What kind of transportation do you think Jesus would use?", ["Donkey", "Teleportation", "He Walks", "13-passenger minivan"], 2], ["What is the best video game?", ["Fortnite", "Super Metroid", "Slime Rancher", "Stardew Valley"], 2], ["What colour am I thinking of right now?", ["Red", "The entire rainbow", "Turquoise", "Periwinkle"], 3], ["Which of these artists are best?", ["girl in red", "Vacations", "$WERVE!", "Jimi Hendrix"], 0], [">:(", ["( ‾ʖ̫‾)", "<3", "( ͡o ͜ʖ ͡o)", "»-(¯`·.·´¯)->firby<-(¯`·.·´¯)-«"], 1]]
 
         # load componants
         self.load_assets()
