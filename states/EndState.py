@@ -15,6 +15,6 @@ class End(BaseState):
         display.fill((255, 255, 255))
 
         # draw title
-        self.game.draw_text(display, str(self.game.total) + "/" + str(len(self.game.questions)), (255,0,255), self.game.GAME_WIDTH/2, self.game.GAME_HEIGHT/3, self.font)
+        self.game.draw_text(display, self.game.team + " : " + str(self.game.total) + "/" + str(len(self.game.questions)), (255,0,255), self.game.GAME_WIDTH/2, self.game.GAME_HEIGHT/3, self.font)
 
         self.game.draw_text(display, "Press Escape", (0,0,0), self.game.GAME_WIDTH/2, self.game.GAME_HEIGHT/2, self.font);
