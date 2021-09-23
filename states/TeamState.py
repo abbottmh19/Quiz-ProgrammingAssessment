@@ -25,7 +25,7 @@ class Team(BaseState):
             if (self.game.actions['other'] == "\b"):
                 self.input = self.input[:-1]
             else:
-                if (len(self.input) < 40):
+                if (len(self.input) < 10):
                     self.input += self.game.actions["other"]
 
         # if we press enter
