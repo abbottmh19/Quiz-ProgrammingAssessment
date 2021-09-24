@@ -39,14 +39,15 @@ class Play(BaseState):
                 self.pressed = 3
             
             # check answer
-            if (self.pressed == self.game.questions[self.question][2]):
-                self.game.total += 1
+            if (self.pressed != -1):
+                if (self.pressed == self.game.questions[self.question][2]):
+                    self.game.total += 1
 
-            if (self.question+1 != self.amount):
-                self.question += 1
-            else:
-                self.game.state_stack.append(self.game.end_screen)
-            self.pressed = -1
+                if (self.question+1 != self.amount):
+                    self.question += 1
+                else:
+                    self.game.state_stack.append(self.game.end_screen)
+                self.pressed = -1
 
 
 
